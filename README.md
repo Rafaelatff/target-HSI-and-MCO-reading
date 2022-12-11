@@ -4,6 +4,11 @@ This project uses STM32CubeIDE and it's a program created to practice my C habil
 
 MCO Master Clock Output
 
+## Clock information for STM32F401
+In this application we are going to use the HSI - Internal RC oscillator.
+
+![image](https://user-images.githubusercontent.com/58916022/206928906-96a38f84-6da1-4dbd-a605-e590d388dc52.png)
+
 ## Selecting the pin to MCO 
 
 To find out which pin to use as MCO, the datasheet of the microcontroller will be used. 
