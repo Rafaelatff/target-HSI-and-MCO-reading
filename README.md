@@ -72,7 +72,36 @@ Now, choose the mode as being AF0.
 
 The final code: 
 
-![image](https://user-images.githubusercontent.com/58916022/206926620-a2c4a97c-1ffe-43ff-8705-24af939b6f3c.png)
+![image](https://user-images.githubusercontent.com/58916022/206927894-aa045808-8767-44bc-8db4-d7f5fd74fce8.png)
 
 ## Results
 
+First, we need to dircovery where the PA8 is on the NUCLEO board. By checking the user manual of the board and we connect those signals to the oscilloscope (or digital analizer).
+
+![image](https://user-images.githubusercontent.com/58916022/206926813-2e86f56e-4799-4429-b320-03ffa86a1efc.png)
+
+The connection:
+
+![image](https://user-images.githubusercontent.com/58916022/206928238-e4fcefa3-e7bd-47f3-94f3-d76d7e348606.png)
+
+A screenshot of the oscilloscope (to see it better):
+
+![image](https://user-images.githubusercontent.com/58916022/206928231-64d4071f-3778-49e4-854e-d7f7319e1bab.png)
+
+
+## Adding prescalar for MCO1
+
+The bits resposable for adding a prescaler value to the MCO1 are also in the RCC_CFGR.
+
+![image](https://user-images.githubusercontent.com/58916022/206927281-c857742b-834a-40b9-b808-a5291f908ce9.png)
+
+Let's make the 26th bit as one to have a prescalar of 2. For that, I just add the following line together with the configuration of RCC_CFGR.
+
+```
+	//Configure MCO1 prescaler for 2
+	*pRccCfgrReg |= ( 1 << 26);
+```
+![image](https://user-images.githubusercontent.com/58916022/206928161-834ecf55-4006-4fdf-907f-c088a63dcb1a.png)
+
+
+![image](https://user-images.githubusercontent.com/58916022/206928151-b2a95d36-35ec-4460-bfc2-dfacd41a47c6.png)
